@@ -1,10 +1,15 @@
+# Notes About the Repo
+- The presentation is at react_js_barcelona_js.key and react_js_barcelona_js.pdf
+
+- The examples are located in the examples/src directory.
+
+- Run `make` to regenerate javascript files from jsx files (src to build).
+
+- This file includes the transcript of the talk "Introduction to React.js".
+
+
 # Introduction to React.js
 
-See the presentation at react_js_barcelona_js.key
-
-See the examples in the examples directory.
-
-Run make to regenerate javascript files from jsx files.
 
 React.js is a library for building user interfaces, built by Facebook and
 Instagram. In building user interfaces, MVC, model-view-controller design
