@@ -12,7 +12,7 @@ var Counter = React.createClass({displayName: "Counter",
     return (
       React.createElement("div", null, 
             "You clicked ", this.state.counter, " times." + ' ' +
-            "Need to click ", 10 - this.state.sayac, " more times.", 
+            "Need to click ", 10 - this.state.counter, " more times.", 
         React.createElement("button", {onClick: this.increment}, "Increment")
       ))
     }

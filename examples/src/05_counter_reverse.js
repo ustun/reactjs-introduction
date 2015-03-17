@@ -12,7 +12,7 @@ var Counter = React.createClass({
     return (
       <div>
             You clicked {this.state.counter} times.
-            Need to click {10 - this.state.sayac} more times.
+            Need to click {10 - this.state.counter} more times.
         <button onClick={this.increment}>Increment</button>
       </div>)
     }
