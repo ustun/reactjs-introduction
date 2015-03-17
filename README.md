@@ -118,7 +118,7 @@ to dissect or analyze the interface in terms of components.
 Assume that we have an HTML template ready, for example an address book. To
 implement this, we should separate this into smaller components. For example,
 the component at the top is a search component, below each letter with people in
-it is a `Page' component, each address line is an `Address' component.
+it is a `Page` component, each address line is an `Address` component.
 
 With this abstraction, we are making bigger Lego blocks out of the smaller Lego
 blocks we have and in the end, we have the biggest Lego block, our whole
@@ -134,9 +134,9 @@ terminology, this basic unit is called a *component*.
 ### A Simple Component: HelloWorld
 
 Let's give an example as to how components are created and used. In order to
-create a React component, we call `React.createClass' with a simple object
+create a React component, we call `React.createClass` with a simple object
 literal called the *spec*. Within this object, we define how the component will
-be rendered in the `render' method. Let's define a `HelloWorld' component.
+be rendered in the `render` method. Let's define a `HelloWorld` component.
 
 
 ```js
@@ -156,7 +156,7 @@ invocation.
 
 After we define this component, in order to show it on the page, we have to
 mount it to an element that already exists on the page. For this, we use
-`React.render` method. To mount the component to the `body' element, we use
+`React.render` method. To mount the component to the `body` element, we use
 `React.render(<HelloWorld/>, document.body)`. The element to mount could have
 been any other HTML element instead of `body`.
 
@@ -173,7 +173,7 @@ display "Hello World" twice.
 
 To create a `Greeting` component, we have to have a `render` method in
 `React.createClass` that uses `HelloWorld` twice. Then, we can mount the
-`Greeting'` component to the `body' using `React.render`.
+`Greeting` component to the `body` using `React.render`.
 
 ```js
 var Greeting = React.createClass({
@@ -482,8 +482,8 @@ tree. One can also view the props and state values of individual components.
 
 2. Using node.js on the server side and same React components from our client side
 application, we can build a server-side React application so that we can have
-isomorphic applications. Here, instead of `React.render', we can use
-'React.renderToString', which will output the components view as an HTML string,
+isomorphic applications. Here, instead of `React.render`, we can use
+`React.renderToString`, which will output the components view as an HTML string,
 which we serve to the user. Using isomorphic techniques, we can get SEO
 benefits and faster initial page loads.
 
