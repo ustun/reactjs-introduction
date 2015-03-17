@@ -1,10 +1,4 @@
-# Introduction to React.js
-
-See the presentation at react_js_barcelona_js.key
-
-See the examples in the examples directory.
-
-Run make to regenerate javascript files from jsx files.
+# React.js'e Giriş
 
 React.js Facebook ve Instagram tarafından geliştirilmiş bir kullanıcı arayüzü
 kütüphanesidir. Kullanıcı arayüzü geliştirmede MVC, yani model-view-controller
