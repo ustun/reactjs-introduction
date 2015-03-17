@@ -36,7 +36,7 @@ We can summarize the basic goal of React as follows: To build big applications w
 data changes over time and to build these applications rapidly and robustly.
 
 Usually it is not an easy job to create interface, but why exactly is that?
-Let's consider about a server-side web system. We pull the data out of the
+Let's consider a server-side web system. We pull the data out of the
 database, then feed that data to a template later and finally we have the HTML
 output. In many applications, for example in PHP, Django or Rails, this is an
 easy operation. We can abstract this operation as a function that takes some
@@ -47,17 +47,17 @@ the language JavaScript at fault here? Is that the real source of difficulty?
 
 Actually until a few years ago, many people thought like that. After all,
 JavaScript was a language that was invented in just 10 days by Brendan Eich. It
-has its fair share of weirdness or corner cases.
+has its fair share of weirdnesses or corner cases.
 
-However, as Douglas Crockford explains in his book JavaScript the Good Parts,
+However, as Douglas Crockford explains in his book "JavaScript the Good Parts",
 although JavaScript looks like C, beneath that clothing lies a Lisp, a flexible
 and functional language. The weirdnesses in the language have been more or less
-fixed over time, with standards like ES6 or projects like CoffeeScript or
-underscore which supports functional paradigms.
+fixed over time, with standards like ES6 or with projects like CoffeeScript or
+underscore which support functional paradigms.
 
 So, if the main difficulty in building user interfaces is not the language, what
 is it? When we examine big applications and compare serverside and clientside
-interfaces, we see that the main difficulty lies in managing the data that
+interfaces, we see that the main difficulty lies in managing data that
 changes over time. Let's think about a server side application, we receive the
 data from the database, then send it to the rendering pipeline. During this
 operation, we can assume that the data does not change at all.
@@ -68,14 +68,14 @@ synchronization between view and data becomes a problem. If the same data is
 displayed in multiple locations, this becomes an even more complex issue.
 
 Let's think about a chat application. It should show a list of our online
-friends and the number of online friends. Let's say another of our friends
-became online. If we don't use any user interface libraries here, there are two
+friends and the number of online friends. Let's say another one of our friends
+becomes online. If we don't use any user interface libraries, there are two
 changes we need to make: First we should append the name of our friend to the
-list, then we need to increment the number at the top. That is, we have to make
+list, then we need to increment the number at the top. We have to make
 a partial change, a patch in view.
 
 Even if this looks like a simple example, most of the problems in interface
-building are due to this catchup game between data and view. Some data changes
+building are due to this catch up game between data and view. Some data changes
 in an application, and it is the job of the programmer to ensure that the data
 in the view catches up.
 
@@ -118,7 +118,7 @@ to dissect or analyze the interface in terms of components.
 Assume that we have an HTML template ready, for example an address book. To
 implement this, we should separate this into smaller components. For example,
 the component at the top is a search component, below each letter with people in
-it is a Page component, each address line is an Address component.
+it is a `Page' component, each address line is an `Address' component.
 
 With this abstraction, we are making bigger Lego blocks out of the smaller Lego
 blocks we have and in the end, we have the biggest Lego block, our whole
@@ -147,33 +147,33 @@ var HelloWorld = React.createClass({
 })
 ```
 
-Here, React is actually just using JavaScript language, this is not a templating
+Here, React is actually just using JavaScript, this is not a templating
 language. The only difference is that it allows HTML-like syntax called
-*JSX*. JSX is an optional transpiler, the only thing it does is to convert these
+*JSX*. JSX is an optional transpilation technology, the only thing it does is to convert these
 tags to JavaScript function calls. For example, it converts `<div>Hello
 World</div>` to `React.createElement("div", null", "Hello World")` function
 invocation.
 
 After we define this component, in order to show it on the page, we have to
 mount it to an element that already exists on the page. For this, we use
-`React.render' method; to mount to the `body' element, we use
+`React.render` method. To mount the component to the `body' element, we use
 `React.render(<HelloWorld/>, document.body)`. The element to mount could have
 been any other HTML element instead of `body`.
 
 As you can see, using the already defined `div` component in HTML, we create a
-new component called `HelloWorld' and we can now use it as if such a component
+new component called `HelloWorld` and we can now use it as if such a component
 existed natively in HTML.
 
 
 ### A Compound Component: Greeting
 
 Let's take this one step further and create a compound component using this
-simple component. For example, let's make a `Greeting' component that will
+simple component. For example, let's make a `Greeting` component that will
 display "Hello World" twice.
 
-To create a `Greeting' component, we have to have a `render' method in
-`React.createClass' that uses `HelloWorld' twice. Then, we can mount the
-`Greeting' component to the `body' using `React.render'.
+To create a `Greeting` component, we have to have a `render` method in
+`React.createClass` that uses `HelloWorld` twice. Then, we can mount the
+`Greeting'` component to the `body' using `React.render`.
 
 ```js
 var Greeting = React.createClass({
@@ -187,16 +187,16 @@ var Greeting = React.createClass({
 })
 ```
 
-As you can see, we can use the `HelloWorld' component in another
+As you can see, we can use the `HelloWorld` component in another
 component.
 
-Let's take this a step further, let's say the `HelloWorld' component takes the
+Let's take this a step further, let's say the `HelloWorld` component takes the
 name of the person to say hello to, as a parameter and it displays this person's
 name.
 
 Just like the input parameters of functions, a React component can take a
-parameter set through an object called `props', short for properties. `props'
-can be accessed in the `render' method. Now let's rewrite `HelloWorld` using
+parameter set through an object called `props`, short for properties. `props`
+can be accessed in the `render` method. Now let's rewrite `HelloWorld` using
 props:
 
 ```js
@@ -207,7 +207,7 @@ var HelloWorld = React.createClass({
 })
 ```
 
-The curly braces here { } are again an addition React makes to
+The curly braces { } here are again an addition React makes to
 JavaScript. Behind the scenes, the things inside the braces are converted to
 function parameters. For example, instead of `<div>Hello {this.props.name}</div>`
 we could have written `React.createElement("div", null, "Hello",
@@ -227,7 +227,7 @@ var Greeting = React.createClass({
 })
 ```
 
-Now we have a reusable component called `HelloWorld', whose interface is clearly defined.
+Now we have a reusable component called `HelloWorld`, whose interface is clearly defined.
 
 ### Data change
 
@@ -238,13 +238,13 @@ action. To exemplify the change in data, let's think of a Counter component.
 
 When we think about the variables in the Counter component, the only variable is
 a number called counter. In React, variables are collected in an object called
-`state'. Just like there is an object called `props' to collect the parameters
-sent from the parent to the child, the child itself has an object called `state'
+`state`. Just like there is an object called `props` to collect the parameters
+sent from the parent to the child, the child itself has an object called `state`
 for tracking its changes.
 
 To give the initial value for this state, the method we have to implement is
-called `getInitialState'. After we do this, we can access the state variables in
-the `render' method.
+called `getInitialState`. After we do this, we can access the state variables in
+the `render` method.
 
 ```js
 var Counter = React.createClass({
@@ -277,7 +277,7 @@ var Counter = React.createClass({
 ```
 
 Our aim is to increment the counter once each time we click this button. For
-this, we have to add an `onClick' handler function and within this function, we
+this, we have to add an `onClick` handler function and within this function, we
 have to increment the counter variable in `state'.
 
 ```js
@@ -303,8 +303,8 @@ var Counter = React.createClass({
 
 When handling state, React has a different point of view compared to other
 frameworks. Every state change has to be done through a method called
-`setState', using this method, React can see that something in the system has
-changed and `render' method has to be run again.
+`setState`, using this method, React can see that something in the system has
+changed and `render` method has to be run again.
 
 ```js
 var Counter = React.createClass({
@@ -335,7 +335,7 @@ more importantly might make it harder to reason about your code.
 
 In React, however, all the state changes are explicit. According to React, state
 changes form most of the difficulty in application development, hence every
-change has to be done through `setState'.
+change has to be done through `setState`.
 
 Now let's improve our counter example, for example, the counter should be
 counting down from 10 while counting up from 0 and the two numbers have to be
@@ -410,10 +410,10 @@ data has to change? React solves this issue with callbacks or event handlers,
 passed as props to the child components. The code that must run when an event
 happens is passed from the parent to the child components. The child components
 have no need to know what the code entails, actually it is even better that they
-have no idea what the code is about. The children just need to know that it has
-to call whatever it has been passed as props.
+have no idea what the code is about. The children just need to know that they have
+to call whatever they have been passed as props.
 
-Therefore, we can summarize the bidirectional data flow in React as follows:
+Therefore, we can summarize the unidirectional data flow in React as follows:
 Data flows in a single direction, downward and the child components inform the
 parents of the changes via callbacks. When the parents are informed of news, the
 data in parent changes and the new data is passed from the top to the
@@ -480,7 +480,7 @@ topics in the React ecosystem:
 allows one to view the application as a component tree, just like the HTML DOM
 tree. One can also view the props and state values of individual components.
 
-2. Using node.js serverside and same React components from our clientside
+2. Using node.js on the server side and same React components from our client side
 application, we can build a server-side React application so that we can have
 isomorphic applications. Here, instead of `React.render', we can use
 'React.renderToString', which will output the components view as an HTML string,
@@ -500,9 +500,9 @@ Stores, and sync their states with these stores.
 
 ## Conclusion
 
-In summary, we have seen that React is built on 3 core principles. First of all,
+In summary, we have seen that React is built on three core principles. First of all,
 all data changes have to be made explicitly and the data has to flow in a single
-direction. Second, each application has be dissected to components and these
+direction. Second, each application has be dissected to components; these
 components can take props from parents or can manage their own state. If the
 components need to communicate with their parents, this is done through
 callbacks. Thirdly, for data and view synchronization, the views of components
